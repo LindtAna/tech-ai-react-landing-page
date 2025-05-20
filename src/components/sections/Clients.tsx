@@ -20,7 +20,7 @@ export const Clients = () => {
               className="p-4 sm:p-5 rounded-xl bg-body border border-box-border group"
             >
               <img
-                src={`public/assets/logos/${logo}.png`}
+                src={`/assets/logos/${logo}.png`}
                 width="100"
                 height="60"
                 alt={logo}
