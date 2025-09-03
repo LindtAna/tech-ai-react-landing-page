@@ -92,11 +92,20 @@ Die Ordnerstruktur folgt einem klaren Prinzip:
 
 ## Theming mit Zustand
 
-Das ThemeStore-Modul in `src/store/ThemeStore.ts` verwaltet den Light/Dark-Modus über Zustand und persistiert die Auswahl im LocalStorage. Kernfunktionen:
+Das `ThemeStore`-Modul in `src/store/ThemeStore.ts` nutzt Zustand mit Persistenz, um zwischen Light- und Dark-Mode zu wechseln und die Auswahl im Local Storage unter dem Key `"theme"` zu speichern. Beim Start wird das Theme anhand der System­einstellung (`prefers-color-scheme`) initial gesetzt.  
 
-- `getCurrentTheme()`: Ermittelt gespeicherten Modus  
-- `setTheme(mode: 'light' | 'dark')`: Schaltet global um  
-- Automatische Anpassung der HTML- und Body-Klassen  
+### Kernfunktionen
+
+- **Initialisierung nach Systempräferenz**  
+  Beim Laden wird geprüft, ob der Nutzer den Dark Mode auf Systemebene aktiviert hat, und entsprechend `theme` auf `"dark"` oder `"light"` gesetzt.
+
+- **toggleTheme()**  
+  Schaltet zwischen `"light"` und `"dark"`, indem es die CSS-Klasse `.dark` am `<html>`-Element hinzufügt oder entfernt und den neuen Wert im Store speichert.
+
+- **Persistenz im Local Storage**  
+  Speichert das aktuelle Theme unter dem Key `"theme"`.  
+  Beim Rehydratisieren synchronisiert es die `.dark`-Klasse am Root-Element mit dem gespeicherten Wert.  
+
 
 ---
 
