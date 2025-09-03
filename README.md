@@ -1,54 +1,113 @@
-# React + TypeScript + Vite
+# Tech AI React Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live-Demo: https://tech-ai-react-landing-page.vercel.app
 
-Currently, two official plugins are available:
+Tech AI React Landing Page ist eine moderne, einseitige Vorlage für Produkt- und Service-Landingpages.  
+Sie kombiniert React, Vite, Tailwind CSS, TypeScript und Zustand zu einer performanten, modulbasierten und leicht erweiterbaren Architektur.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Projektbeschreibung
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Die Anwendung besteht aus mehreren klar abgegrenzten Sektionen (Hero, Services, Pricing, Statistics, Clients, About Us) und bietet:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Schnelle Ladezeiten dank Vite und ESBuild  
+- Responsives Design mit Utility-First-Ansatz von Tailwind CSS  
+- Type-safe Development durch TypeScript  
+- Persistentes Dark/Light-Theme via Zustand  
+
+---
+
+## Design
+
+Tailwind CSS ermöglicht kurze Iterationszyklen durch Utility-Klassen, während modulare Komponenten Wiederverwendbarkeit gewährleisten.  
+Der responsiv getestete Breakpoint-Ansatz stellt optimale Darstellung auf Mobilgeräten, Tablets und Desktops sicher.
+
+---
+
+## Funktionalität
+
+- Header & Navigation: Feststehender Navbar mit Link-Animation  
+- Clients: Animierte Partner-Logos  
+- Theme Switcher: Umschaltung zwischen Hell- und Dunkelmodus mit Speicherung im LocalStorage  
+
+---
+
+## Projektstruktur
+
+```plaintext
+tech-ai-react-landing-page/
+├── public/
+│   └── assets/
+│       └── logos/
+│           ├── about-us.png
+│           ├── icon.svg
+│           ├── react.svg
+│           └── sci-hero.png
+├── src/
+│   ├── components/
+│   │   └── cards/
+│   │       ├── AboutUsCard.tsx
+│   │       └── Service.tsx
+│   ├── elements/
+│   │   ├── Footer.tsx
+│   │   └── Navbar.tsx
+│   ├── sections/
+│   │   ├── AboutUs.tsx
+│   │   ├── CallToAction.tsx
+│   │   ├── Clients.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Pricing.tsx
+│   │   ├── Services.tsx
+│   │   └── Statistics.tsx
+│   ├── shared/
+│   │   ├── Button.tsx
+│   │   ├── ButtonLink.tsx
+│   │   ├── Container.tsx
+│   │   ├── NavItem.tsx
+│   │   ├── Paragraph.tsx
+│   │   ├── Title.tsx
+│   │   └── Layout.tsx
+│   ├── store/
+│   │   └── ThemeStore.ts
+│   ├── utils/
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Komponentenbasierte Architektur
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Die Ordnerstruktur folgt einem klaren Prinzip:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- components/cards: Wiederverwendbare Karten  
+- elements: Grundlegende UI-Elemente wie Navbar und Footer  
+- sections: Zusammengesetzte Seitenabschnitte  
+- shared: Globale Bausteine (Buttons, Container, Titel, Absätze)  
+- store: Zustand-Store für das Theme-Management  
+- utils: App-Initialisierung und CSS-Konfiguration  
+
+---
+
+## Theming mit Zustand
+
+Das ThemeStore-Modul in `src/store/ThemeStore.ts` verwaltet den Light/Dark-Modus über Zustand und persistiert die Auswahl im LocalStorage. Kernfunktionen:
+
+- `getCurrentTheme()`: Ermittelt gespeicherten Modus  
+- `setTheme(mode: 'light' | 'dark')`: Schaltet global um  
+- Automatische Anpassung der HTML- und Body-Klassen  
+
+---
+
+## Technologie-Stack
+
+| Technologie   | Beschreibung                        |
+|---------------|-------------------------------------|
+| React         | Komponentenbasiertes UI-Framework   |
+| Vite          | Entwicklungsserver & Bundler        |
+| TypeScript    | Statische Typisierung               |
+| Tailwind CSS  | Utility-First-CSS-Framework         |
+| Zustand       | Leichter State-Manager              |
+| ESBuild       | Schnelles Bundling                  |
+| PostCSS       | CSS-Verarbeitung                    |
