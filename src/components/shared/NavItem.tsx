@@ -1,5 +1,10 @@
+// Navigationselement für Menüs und Footer
+// Kapselt den Link mit Hover- und Transition-Effekten für bessere Usability
+
 interface NavItemProps {
+  // Ziel-URL für den Link
   href: string;
+  // Anzuzeigender Text des Links
   text: string;
 }
 

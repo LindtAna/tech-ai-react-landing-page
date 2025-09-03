@@ -1,5 +1,12 @@
+// Hüllt den Inhalt in einen zentrierten Wrapper mit max. Breite und responsiven horizontalen Polsterungen
+// Sorgt dafür, dass alle Seitenabschnitte ein einheitliches Layout haben
+
+
+
 interface ContainerProps {
+  // Children-Elemente, die innerhalb des Wrappers gerendert werden
   children: React.ReactNode;
+  // Zusätzliche CSS-Klassen, um das Standard-Layout zu erweitern
   className?: string;
 }
 

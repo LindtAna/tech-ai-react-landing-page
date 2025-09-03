@@ -1,29 +1,40 @@
-import { Button } from "../shared/Button";
-import { Container } from "../shared/Container";
-import { Paragraph } from "../shared/Paragraph";
-import sciHero from "/public/assets/sci-hero.png";
-import { Statistics } from "./Statistics";
+// Bildet den oberen Hero-Bereich ab
+// Kombiniert Text, Call-to-Action-Formular sowie ein großes Bild
+// und dekorative Blur-Elemente für visuelles Ästhetik
+
+import { Button } from "../shared/Button";           // Wiederverwendbarer Button mit Hover- und Fokus-Effekten
+import { Container } from "../shared/Container";     // Zentriert den Inhalt, konsistente Seitenabstände
+import { Paragraph } from "../shared/Paragraph";     // Paragraph-Element mit Abständen
+import sciHero from "/public/assets/sci-hero.png";   
+import { Statistics } from "./Statistics";  // Unterkomponente für Kennzahlen direkt unter dem Hero
 
 export const Hero = () => {
 
     return (
         <section className="relative pt-32 lg:pt-36">
-            {" "}
+            {/* Container legt horizontale Ränder fest, wechselt in der Breite von Spalte zu Zeile */}
             <Container className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+                {/* Absolut positionierte Blur-Elemente für dekorative Farbverläufe */}
                 <div className="absolute w-full lg:w-1/2 inset-y-0 lg:right-0">
+                 {/* Großes, schräg gestelltes Farbquadrat mit Blur*/}
                     <span className="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 
                         skew-x-12 rounded-3xl bg-gradient-to-r from-blue-600 to-violet-600
                         blur-xl opacity-60 lg:opacity-95 lg:block hidden">
                     </span>
+                    {/* Kleinerer kreisförmiger Blur im unteren Bereich */}
                     <span className="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
                 </div>
+                {/* Linke Spalte: Titel, Text und Kontaktformular */}
                 <div className="relative flex flex-col items-center text-center lg:text-left lg:py-8 lg:items-start
                         lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
+                     {/* Hauptüberschrift mit Gradient-Clip für den Begriff "with AI" */}
                     <h1 className="text-heading-1 text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold">
                         Advance Science
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 ml-2">with AI
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 ml-2">
+                            with AI
                         </span>
                     </h1>
+                    
                     <Paragraph className="mt-8">
                         <p>
                             Our AI platform accelerates research by automating data analysis, optimizing experiments, and uncovering insights.
@@ -31,6 +42,8 @@ export const Hero = () => {
                             Transform raw data into breakthroughs—powered by AI.
                         </p>
                     </Paragraph>
+
+                     {/* Formular für E-Mail-Kontaktanfrage – responsiv und fokussierbar */}
                     <div className="mt-10 w-full flex max-w-md mx-auto lg:mx-0">
                         <div className="flex sm:flex-row flex-col gap-5 w-full">
                             <form action="#"
@@ -39,6 +52,7 @@ export const Hero = () => {
                                           bg-box-bg rounded-full ease-linear focus-within:bg-body
                                           focus-within:border-primary"
                             >
+                                {/* Envelope-Icon => E-Mail-Eingabe */}
                                 <span className="min-w-max pr-2 border-r border-box-border">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -56,18 +70,24 @@ export const Hero = () => {
                                         />
                                     </svg>
                                 </span>
+
+                {/* Eingabefeld für E-Mail-Adresse*/}
                                 <input
                                     type="email"
                                     placeholder="nerd@example.com"
                                     className="w-full py-3 outline-none bg-transparent"
                                 />
+                                {/* Abschicken-Button mit Farbwechsel auf Hover */}
                                 <Button className="min-w-max text-white">
-                                    <span className="relative z-[5] group-hover:text-violet-600 transition-colors duration-300">Contact Me</span>
+                                    <span className="relative z-[5] group-hover:text-violet-600 transition-colors duration-300">
+                                        Contact Me
+                                        </span>
                                 </Button>
                             </form>
                         </div>
                     </div>
                 </div>
+                 {/* Rechte Spalte: großes Hero-Bild mit responsiver Anpassung */}
                 <div className="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
                     <img
                         src={sciHero}
@@ -78,6 +98,7 @@ export const Hero = () => {
                     />
                 </div>
             </Container>
+             {/* Key Statistics unter dem Hero-Bereich */}
             <Statistics />
         </section>
     );

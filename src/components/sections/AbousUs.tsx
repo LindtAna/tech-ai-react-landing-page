@@ -1,14 +1,20 @@
-import { Container } from "../shared/Container"
-import AboutUsImg from "/public/assets/about-us.png";
-import { Title } from "../shared/Title";
-import { Paragraph } from "../shared/Paragraph";
-import { AboutUsCard } from "../cards/AboutUsCard";
+// Definiert die „About Us“-Sektion der Seite mit responsivem Layout darstellt
+
+
+import { Container } from "../shared/Container";     // Zentrierter Layout-Wrapper
+import AboutUsImg from "/public/assets/about-us.png"; 
+import { Title } from "../shared/Title";             // Überschrift-Komponente
+import { Paragraph } from "../shared/Paragraph";     // Fließtext-Komponente
+import { AboutUsCard } from "../cards/AboutUsCard";  // Karte mit Icon, Titel und Beschreibung
 
 export const AboutUs = () => {
     return (
         <section id="about-us">
+            {/* Flex-Container: Bild links, Text rechts */}
             <Container className="flex flex-col md:flex-row gap-10 lg:gap-12 items-center">
-                <div className="w-full md:w-5/12 lg:w-1/2">
+
+                {/* Bild-Wrapper: das Bild in fester Höhe, abgerundete Ecken */}
+                     <div className="w-full md:w-5/12 lg:w-1/2">
                     <div className="w-full h-80 sm:h-96 relative">
                         <img
                             src={AboutUsImg}
@@ -17,12 +23,16 @@ export const AboutUs = () => {
                         />
                     </div>
                 </div>
-
+{/* Textbereich: Titel, Absatz und Karten */}
                 <div className="w-full md:w-7/12 lg:w-1/2 flex flex-col space-y-4">
+                {/* Hauptüberschrift */}
                     <Title>AI for Scientific Discovery</Title>
+                    {/* Einleitender Absatz */}
                     <Paragraph>We empower researchers with cutting-edge AI to accelerate breakthroughs. Our platform combines advanced algorithms with domain expertise to transform complex data into groundbreaking insights.
                         Join us in pushing the boundaries of science.</Paragraph>
+                        {/* Karten-Grid: Mission und Vision */}
                     <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+                        {/* Mission-Karte + Icon*/}
                         <AboutUsCard
                             title="Mission"
                             description="To accelerate scientific progress through intelligent AI-driven solutions."
@@ -43,7 +53,7 @@ export const AboutUs = () => {
                                 />
                             </svg>
                         </AboutUsCard>
-
+ {/* Vision-Karte + Icon */}
                         <AboutUsCard
                             title="Vision"
                             description="A future where AI unlocks new frontiers in research and innovation."

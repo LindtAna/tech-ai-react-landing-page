@@ -1,7 +1,10 @@
+// Rendered einen anklickbaren Link im Button-Design
+// für Call-to-Action-Links, die sich wie Buttons verhalten und skalieren
+
 interface ButtonLinkProps {
-  href: string;
-  text: string;
-  className?: string;
+ href: string;         // Ziel-URL
+  text: string;         // Anzeigename im Button
+  className?: string;   // Zusatz-Styles, falls erforderlich
 }
 
 export const ButtonLink = ({ href, text, className="" }: ButtonLinkProps) => {

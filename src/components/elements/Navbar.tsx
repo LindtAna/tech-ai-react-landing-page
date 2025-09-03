@@ -1,9 +1,14 @@
-import { Container } from "../shared/Container";
-import logo from '/public/assets/icon.svg';
-import { NavItem } from "../shared/NavItem";
-import { ButtonLink } from "../shared/ButtonLink";
-import { useThemeStore } from "../../store/ThemeStore";
+// Definiert die Haupt-Navigationsleiste der Anwendung, inklusive Logo, Links und Theme-Switch
+// Stellt sicher, dass die Navigation responsive funktioniert und sich im Header immer oben hält
 
+
+import { Container } from "../shared/Container";      // Layout-Wrapper mit zentriertem Innenabstand
+import logo from '/public/assets/icon.svg';           
+import { NavItem } from "../shared/NavItem";          // Einzelner Navigationslink mit Hover-Effekten
+import { ButtonLink } from "../shared/ButtonLink";    // Stilisiertes Link-Button für Call-to-Action
+import { useThemeStore } from "../../store/ThemeStore"; // Zustand-Store für Light/Dark-Mode
+
+// Definiert das Hauptmenü als Array von Link-Objekten
 export const navItems = [
     { href: "#", text: "Home" },
     { href: "#services", text: "Services" },
@@ -12,12 +17,14 @@ export const navItems = [
 ];
 
 export const Navbar = () => {
+    // Hook aus Zustand: liefert current theme und Umschalt-Funktion
     const { toggleTheme, theme } = useThemeStore();
     return (
         <header className="absolute inset-x-0 top-0 z-50 py-6">
+            {/* Container zentriert und limitiert Breite */}
             <Container>
                 <nav className="w-full flex justify-between gap-6 relative">
-                    {/* Logo */}
+                    {/* Logo-Bereich */}
                     <div className="min-w-max inline-flex relative">
                         <a href="/" className="relative flex items-center gap-3">
                             <img src={logo} alt="EdgeAI Logo" className="w-10 h-10" />
@@ -26,12 +33,13 @@ export const Navbar = () => {
                             </div>
                         </a>
                     </div>
-
+ {/* Hauptmenü + Call-to-Action (mobil ausgeklappt, auf Desktop statisch) */}
                     <div
                         className="flex flex-col lg:flex-row w-full lg:justify-between lg:items-center 
                       absolute top-full left-0 lg:static lg:top-0 bg-body lg:bg-transparent 
                       border-x border-x-box-border lg:border-x-0 lg:h-auto h-0 overflow-hidden lg:overflow-visible"
                     >
+                        {/* Liste der Navigationslinks */}
                         <ul
                             className="border-t border-box-border lg:border-t-0 px-6 lg:px-0 
                            pt-6 lg:pt-0 flex flex-col lg:flex-row gap-y-4 gap-x-8 
@@ -41,7 +49,7 @@ export const Navbar = () => {
                                 <NavItem href={item.href} text={item.text} key={key} />
                             ))}
                         </ul>
-
+{/* „Get Started“-Button */}
                         <div className="lg:min-w-max flex items-center sm:w-max w-full pb-6 
                             lg:pb-0 border-b border-box-border lg:border-0
                             px-6 lg:px-0 overflow-visible">
@@ -49,7 +57,7 @@ export const Navbar = () => {
                         </div>
                     </div>
 
-                   {/* toggle button */}
+                   {/* Theme-Umschalter */}
                     <div className="min-w-max flex items-center gap-x-3">
                         <button
                             onClick={toggleTheme}
@@ -57,6 +65,7 @@ export const Navbar = () => {
                                 }`}
                         >
                             {theme === "dark" ? (
+                                /* Mond-Icon für Dark Mode */
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="#ffffff"
@@ -72,6 +81,7 @@ export const Navbar = () => {
                                     />
                                 </svg>
                             ) : (
+                                /* Sonnen-Icon für Light Mode */
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"

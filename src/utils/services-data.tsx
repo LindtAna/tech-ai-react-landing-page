@@ -1,3 +1,13 @@
+// Hier werden alle angebotenen Services als Array definiert
+// Jeder Eintrag enthält Titel, Beschreibung und ein SVG-Icon als React-Element.
+
+/**
+ * services: Liste der angebotenen AI-basierten Dienstleistungen.
+ * - title: Überschrift im Service-Card
+ * - description: Kurztext, der den Nutzen beschreibt
+ * - icon: Inline-SVG für einfache Anpassung von Farbe und Größe
+ */
+
 export const services = [
   {
     title: "Automated Research",
