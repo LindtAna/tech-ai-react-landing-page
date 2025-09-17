@@ -5,10 +5,6 @@ Live-Demo: https://tech-ai-react-landing-page.vercel.app
 Tech AI React Landing Page ist eine moderne, einseitige Vorlage für Produkt- und Service-Landingpages.  
 Sie kombiniert React, Vite, Tailwind CSS, TypeScript und Zustand zu einer performanten, modulbasierten und leicht erweiterbaren Architektur.
 
----
-
-## Projektbeschreibung
-
 Die Anwendung besteht aus mehreren klar abgegrenzten Sektionen (Hero, Services, Pricing, Statistics, Clients, About Us) und bietet:
 
 - Schnelle Ladezeiten dank Vite und ESBuild  
@@ -40,10 +36,6 @@ tech-ai-react-landing-page/
 ├── public/
 │   └── assets/
 │       └── logos/
-│           ├── about-us.png
-│           ├── icon.svg
-│           ├── react.svg
-│           └── sci-hero.png
 ├── src/
 │   ├── components/
 │   │   └── cards/
@@ -74,12 +66,9 @@ tech-ai-react-landing-page/
 │   ├── App.tsx
 │   ├── index.css
 │   ├── main.tsx
-│   └── vite-env.d.ts
 ```
 
-## Komponentenbasierte Architektur
-
-Die Ordnerstruktur folgt einem klaren Prinzip:
+Tech AI React Landing Page ist nach funktionalen Bereichen in Ordnern organisiert:
 
 - components/cards: Wiederverwendbare Karten  
 - elements: Grundlegende UI-Elemente wie Navbar und Footer  
